@@ -21,7 +21,7 @@ def upgrade() -> None:
     op.create_table('project',
     sa.Column('name', sa.String(), nullable=False),
     sa.Column('description', sa.String(), nullable=False),
-    sa.Column('id', sa.Uuid(), nullable=False),
+    sa.Column('id', sa.INT, nullable=False),
     sa.Column('created_at', sa.Float(), nullable=False),
     sa.Column('updated_at', sa.Float(), nullable=False),
     sa.PrimaryKeyConstraint('id')

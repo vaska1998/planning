@@ -22,9 +22,9 @@ class ProjectService:
         projects = self.project_repository.get_all()
         return [ProjectSchema.model_validate(project) for project in projects]
 
-    def get_one_project(self, project_id: uuid.UUID) -> ProjectSchema:
+    def get_one_project(self, project_id: int) -> ProjectSchema:
         project = self.project_repository.get(project_id)
         return ProjectSchema.model_validate(project)
 
-    def create_project(self, project: ProjectSchema):
+    def create_project(self, project: Project):
         self.project_repository.add(project)

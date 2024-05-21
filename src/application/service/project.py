@@ -28,3 +28,8 @@ class ProjectService:
 
     def create_project(self, project: Project):
         self.project_repository.add(project)
+
+    def delete_project(self, project_id: int):
+        project = self.project_repository.get(project_id)
+        self.project_repository.delete(project)
+

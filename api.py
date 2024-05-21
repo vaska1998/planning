@@ -26,5 +26,10 @@ def get_project(id:int):
 def create_project(project: ProjectSchema):
     application = injector.get(ProjectService)
     new_project = Project(name=project.name, description=project.description)
-    application.project_repository.add(new_project)
+    application.create_project(new_project)
 
+
+@app.delete("/project/{id}")
+def delete_project(id:int):
+    application = injector.get(ProjectService)
+    application.delete_project(id)

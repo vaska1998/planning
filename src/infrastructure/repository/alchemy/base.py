@@ -16,7 +16,7 @@ class AlchemyRepository(Repository[Entity]):
         self.session = engine.create_session()
         self.entity_class = entity_class
 
-    def get(self, entity_id: uuid) -> Optional[Entity]:
+    def get(self, entity_id: int) -> Optional[Entity]:
         return self.session.query(self.entity_class).filter_by(id=entity_id).one_or_none()
 
     def get_by_filter(self, filter_obj: AppQuery[Entity]) -> Optional[Entity]:

@@ -1,4 +1,6 @@
 import uuid
+from dataclasses import Field
+from datetime import datetime
 from typing import Optional
 
 from pydantic import BaseModel, ConfigDict
@@ -10,4 +12,5 @@ class ProjectSchema(BaseModel):
     id: Optional[int] = None
     name: str
     description: str
+
 

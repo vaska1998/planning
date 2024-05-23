@@ -6,6 +6,7 @@ from injector import inject
 from src.domain.model.project import Project
 from src.domain.schema.project import ProjectSchema
 from src.infrastructure.logger.app_logger import AppLogger
+
 from src.infrastructure.repository.alchemy.project import ProjectRepository
 
 

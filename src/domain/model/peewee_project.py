@@ -7,4 +7,5 @@ class Project(PeeweeEntity):
     name: str = CharField()
     description: str = CharField()
 
-
+    class Meta:
+        db_table = 'projects'

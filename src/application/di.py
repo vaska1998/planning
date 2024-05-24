@@ -1,6 +1,7 @@
 from injector import Module, singleton
 
 from src.application.service.peewee_project import PeeweeProjectService
+from src.application.service.peewee_room import PeeweeRoomService
 from src.application.service.project import ProjectService
 from src.application.service.room import RoomService
 from src.infrastructure.config.app_config import AppConfig
@@ -10,6 +11,7 @@ from src.infrastructure.repository.alchemy.project import ProjectRepository
 from src.infrastructure.repository.alchemy.room import RoomRepository
 from src.infrastructure.repository.peewee.engine import PeeweeEngine
 from src.infrastructure.repository.peewee.project import ProjectPeeweeRepository
+from src.infrastructure.repository.peewee.room import RoomPeeweeRepository
 
 
 class AppModule(Module):
@@ -31,8 +33,10 @@ class AppModule(Module):
         binder.bind(ProjectRepository, to=ProjectRepository, scope=singleton)
         binder.bind(ProjectPeeweeRepository, to=ProjectPeeweeRepository, scope=singleton)
         binder.bind(RoomRepository, to=RoomRepository, scope=singleton)
+        binder.bind(RoomPeeweeRepository, to=RoomPeeweeRepository, scope=singleton)
 
         # services
         binder.bind(ProjectService, ProjectService, scope=singleton)
         binder.bind(PeeweeProjectService, PeeweeProjectService, scope=singleton)
         binder.bind(RoomService, to=RoomService, scope=singleton)
+        binder.bind(PeeweeRoomService, PeeweeRoomService, scope=singleton)

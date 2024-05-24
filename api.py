@@ -72,4 +72,4 @@ def delete_room(id: int):
 @app.post('/roomsAll/{project_id}')
 def delete_all_rooms(project_id: int):
     application = injector.get(RoomService)
-    application.delete_all_rooms(project_id)
+    application.delete_all_rooms_by_project_id(project_id)

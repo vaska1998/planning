@@ -9,7 +9,7 @@ def cli():
 
 @cli.command()
 def sqlalchemy():
-    uvicorn.run('api:app', host='0.0.0.0', port=7000, reload=True)
+    uvicorn.run('api:app', host='0.0.0.0', port=9000, reload=True)
 
 
 @cli.command()

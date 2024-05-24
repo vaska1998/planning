@@ -1,12 +1,11 @@
 from typing import List
 
-from src.domain.model.room import Room
 from src.domain.repository.base import AppQuery, AppFilter
 from src.domain.schema.room import RoomSchema
 from src.infrastructure.logger.app_logger import AppLogger
 from src.infrastructure.repository.alchemy.room import RoomRepository
 from injector import inject
-from injector import inject
+from src.domain.model.room import Room
 
 
 class RoomService:

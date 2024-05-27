@@ -1,24 +1,33 @@
+from datetime import datetime
 from typing import List
-
 from src.domain.model.peewee_room import Room
 from src.domain.repository.base import AppQuery, AppFilter
 from src.domain.schema.room import RoomSchema
 from src.infrastructure.logger.app_logger import AppLogger
-from src.infrastructure.repository.alchemy.room import RoomRepository
 from injector import inject
+
+from src.infrastructure.repository.peewee.room import RoomPeeweeRepository
 
 
 class PeeweeRoomService:
-    room_repository = RoomRepository
+    room_repository = RoomPeeweeRepository
     logger: AppLogger
 
     @inject
-    def __init__(self, room_repository: RoomRepository, logger: AppLogger):
+    def __init__(self, room_repository: RoomPeeweeRepository, logger: AppLogger):
         self.room_repository = room_repository
         self.logger = logger
 
-    def create_room(self, room: Room):
-        self.room_repository.add(room)
+    def create_room(self, room: RoomSchema):
+        time = datetime.now().timestamp()
+        new_room = Room(room_name=room.room_name,
+                        project_id=room.project_id,
+                        room_number=room.room_number,
+                        info=room.info,
+                        created_at=time,
+                        updated_at=time,
+                        )
+        self.room_repository.add(new_room)
 
     def show_all_rooms(self) -> List[RoomSchema]:
         rooms = self.room_repository.get_all()

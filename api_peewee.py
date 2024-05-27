@@ -27,7 +27,6 @@ def get_project(id: int):
 @app.post("/project/")
 def create_project(project: ProjectSchema):
     application = injector.get(PeeweeProjectService)
-    print(project)
     application.create_project(project)
 
 
@@ -54,12 +53,7 @@ def get_room(id: int):
 @app.post("/room/")
 def create_room(room: RoomSchema):
     application = injector.get(PeeweeRoomService)
-    new_room = Room(room_name=room.room_name,
-                    project_id=room.project_id,
-                    room_number=room.room_number,
-                    info=room.info
-                    )
-    application.create_room(new_room)
+    application.create_room(room)
 
 
 @app.delete("/room/{id}")

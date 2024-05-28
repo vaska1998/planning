@@ -9,7 +9,7 @@ from injector import inject
 
 
 class PeeweeProjectService:
-    project_repository = ProjectPeeweeRepository
+    project_repository: ProjectPeeweeRepository
     logger: AppLogger
 
     @inject

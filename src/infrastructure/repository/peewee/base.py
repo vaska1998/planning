@@ -1,4 +1,3 @@
-import uuid
 from typing import TypeVar, List, Optional, Type
 
 from src.domain.model.entity import AppEntity

@@ -2,8 +2,6 @@ from fastapi import FastAPI
 
 from src.application.service.peewee_project import PeeweeProjectService
 from src.application.service.peewee_room import PeeweeRoomService
-from src.domain.model.peewee_project import Project
-from src.domain.model.peewee_room import Room
 from src.domain.schema.project import ProjectSchema
 from src.domain.schema.room import RoomSchema
 from src.interface.cli._injector import injector

@@ -29,13 +29,13 @@ class PeeweeRoomService:
                         )
         self.room_repository.add(new_room)
 
-    def show_all_rooms(self) -> List[RoomSchema]:
+    def show_all_rooms(self):
         rooms = self.room_repository.get_all()
-        return [RoomSchema.model_validate(room) for room in rooms]
+        return rooms
 
-    def show_room(self, room_id: int) -> RoomSchema:
+    def show_room(self, room_id: int):
         room = self.room_repository.get(room_id)
-        return RoomSchema.model_validate(room)
+        return room
 
     def delete_room(self, room_id: int):
         room = self.room_repository.get(room_id)

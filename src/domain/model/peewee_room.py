@@ -5,10 +5,10 @@ from src.domain.model.peewwee_entity import PeeweeEntity
 
 
 class Room(PeeweeEntity):
-    room_number: int = IntegerField()
-    room_name: str = CharField()
-    info: str = CharField()
-    project_id: int = ForeignKeyField(Project, backref='rooms')
+    room_number = IntegerField()
+    room_name = CharField()
+    info = CharField()
+    project_id = ForeignKeyField(Project, backref='rooms')
 
     class Meta:
         db_table = 'rooms'

@@ -29,7 +29,7 @@ Install the required dependencies listed in the requirements.txt file:
 pip install -r requirements.txt
 ```
 ## Apply Database Migrations
-Use Alembic to apply database migrations. To apply the initial migration (revision 0), run:
+Use Alembic to apply database migrations
 
 ```bash
 alembic upgrade 0

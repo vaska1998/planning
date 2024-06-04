@@ -31,7 +31,17 @@ class PeeweeRoomService:
 
     def show_all_rooms(self):
         rooms = self.room_repository.get_all()
-        return rooms
+        result = []
+        for room in rooms:
+            result.append(RoomSchema(
+                id=room.id,
+                room_number=room.room_number,
+                room_name=room.room_name,
+                info=room.info,
+                project_id=room.project_id.id
+            ))
+
+        return result
 
     def show_room(self, room_id: int):
         room = self.room_repository.get(room_id)

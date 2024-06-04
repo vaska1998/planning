@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from peewee import Model, AutoField, SqliteDatabase, FloatField
 
 

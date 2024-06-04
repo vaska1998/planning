@@ -41,10 +41,10 @@ You can start the project using either SQLAlchemy or Peewee as the ORM.
 To start with SQLAlchemy:
 
 ```bash
-python main.py sqlalchemy
+python cli.py sqlalchemy
 ```
 To start with Peewee:
 
 ```bash
-python main.py peewee
+python cli.py peewee
 ```

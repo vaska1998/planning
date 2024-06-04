@@ -10,10 +10,6 @@ class DBSettings(BaseSettings):
 
 
 class AppConfig(BaseSettings):
-    api_key: str
-    api_secret: str
-    api_client_test: bool = False
-
     database: DBSettings
 
     class Config:

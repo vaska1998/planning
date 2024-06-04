@@ -30,10 +30,10 @@ class AppModule(Module):
         # repositories
         binder.bind(AlchemyEngine, AlchemyEngine)
         binder.bind(PeeweeEngine, PeeweeEngine)
-        binder.bind(ProjectRepository, to=ProjectRepository, scope=singleton)
-        binder.bind(ProjectPeeweeRepository, to=ProjectPeeweeRepository, scope=singleton)
-        binder.bind(RoomRepository, to=RoomRepository, scope=singleton)
-        binder.bind(RoomPeeweeRepository, to=RoomPeeweeRepository, scope=singleton)
+        binder.bind(ProjectRepository, to=ProjectRepository)
+        binder.bind(ProjectPeeweeRepository, to=ProjectPeeweeRepository)
+        binder.bind(RoomRepository, to=RoomRepository)
+        binder.bind(RoomPeeweeRepository, to=RoomPeeweeRepository)
 
         # services
         binder.bind(ProjectService, ProjectService, scope=singleton)

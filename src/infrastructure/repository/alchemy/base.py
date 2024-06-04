@@ -17,47 +17,47 @@ class AlchemyRepository(Repository[Entity]):
         self.entity_class = entity_class
 
     def get(self, entity_id: int) -> Optional[Entity]:
-        with self.session.begin():
+        with self.session:
             entity = self.session.query(self.entity_class).filter_by(id=entity_id).one_or_none()
         return entity
 
     def get_by_filter(self, filter_obj: AppQuery[Entity]) -> Optional[Entity]:
-        with self.session.begin():
+        with self.session:
             query = self.session.query(self.entity_class)
             query = self._apply_app_query(query, filter_obj)
         return query.one_or_none()
 
     def find(self, filter_obj: AppQuery[Entity]) -> List[Entity]:
-        with self.session.begin():
+        with self.session:
             query = self.session.query(self.entity_class)
             query = self._apply_app_query(query, filter_obj)
         return query.all()
 
     def get_all(self) -> List[Entity]:
-        with self.session.begin():
+        with self.session:
             entities = self.session.query(self.entity_class).filter_by().all()
         return entities
 
     def count(self, filter_obj: AppQuery[Entity] = None) -> int:
-        with self.session.begin():
+        with self.session:
             query = self.session.query(self.entity_class)
             query = self._apply_app_query(query, filter_obj, skip_pagination=True)
         return query.count()
 
     def add(self, entity: Entity) -> Entity:
-        with self.session.begin():
+        with self.session:
             self.session.add(entity)
             self.session.commit()
         return entity
 
     def update(self, entity: Entity) -> Entity:
-        with self.session.begin():
+        with self.session:
             self.session.add(entity)
             self.session.commit()
         return entity
 
     def delete(self, entity: Entity) -> Entity:
-        with self.session.begin():
+        with self.session:
             self.session.delete(entity)
             self.session.commit()
         return entity

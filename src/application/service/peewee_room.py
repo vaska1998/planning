@@ -45,7 +45,14 @@ class PeeweeRoomService:
 
     def show_room(self, room_id: int):
         room = self.room_repository.get(room_id)
-        return room
+        result = RoomSchema(
+            id=room.id,
+            room_number=room.room_number,
+            room_name=room.room_name,
+            info=room.info,
+            project_id=room.project_id.id
+        )
+        return result
 
     def delete_room(self, room_id: int):
         room = self.room_repository.get(room_id)
